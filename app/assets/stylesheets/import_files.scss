@@ -1,0 +1,54 @@
+// Place all the styles related to the import_files controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.container{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#import-file {
+  padding: 20px;
+  border: 2px solid #999;
+  width: 50%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+input{
+  height: 40px;
+  min-width: 200px;
+  margin: 0 10px;
+  border: 1px solid #999;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+input[type='file'] {
+  display: none;
+}
+
+label {
+  background-color: #3498db;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  height: 40px;
+  width: 200px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+h1 {
+  margin-top: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
