@@ -82,4 +82,4 @@ test:
 #
 production:
   <<: *default
-  url: postgres://myuser:mypass@localhost/somedatabase
+  url: <%= ENV['DATABASE_URL'] %>
