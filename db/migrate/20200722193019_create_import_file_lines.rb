@@ -10,7 +10,6 @@ class CreateImportFileLines < ActiveRecord::Migration[6.0]
       t.time :occurency_hour
       t.string :owner
       t.string :store_name
-
       t.timestamps
     end
   end
