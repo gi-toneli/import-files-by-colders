@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe ImportFile, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "validating attributes" do
+    it "should be invalid" do
+      expect(subject.valid?).to be_falsy
+      expect(subject.errors.size).to eql(2)
+    end
+    
+  end
+  
 end

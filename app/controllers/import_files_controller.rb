@@ -5,4 +5,13 @@ class ImportFilesController < ApplicationController
 
   def show
   end
+
+  def create
+
+  end
+
+  protected
+    def import_file_params
+      params.require(:import_file).permit(:file)
+    end
 end

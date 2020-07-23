@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_172246) do
+ActiveRecord::Schema.define(version: 2020_07_22_193019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "import_file_lines", force: :cascade do |t|
+    t.string "line"
+    t.integer "transaction_type"
+    t.date "date_occurency"
+    t.float "value"
+    t.string "cpf"
+    t.string "card"
+    t.time "occurency_hour"
+    t.string "owner"
+    t.string "store_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "import_files", force: :cascade do |t|
     t.string "name"
