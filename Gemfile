@@ -54,3 +54,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ============ additional gems
 gem "font-awesome-rails"
+gem 'active_storage_validations'
