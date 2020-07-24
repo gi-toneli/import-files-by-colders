@@ -1,11 +1,14 @@
 
 <h1>Faça o upload do arquivo em formato CNAB</h1>
+
 <div class="container">
-  
   <%= form_for @import_file, html: { id: 'import-file' } do |f| %>
     <%=f.label :file, 'Informe o arquivo CNAB'%>
     <%= f.file_field :file, required: true %>
     <%= f.submit "Salvar dados "%>
   <% end %>
 </div>
+<% if flash && flash[:success] %>
+<h3><%=flash[:success] %></h3>
+<% end %>
 

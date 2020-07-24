@@ -38,6 +38,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'rubocop'
   gem 'simplecov'
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -55,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # ============ additional gems
 gem "font-awesome-rails"
 gem 'active_storage_validations'
+# gem 'paperclip'

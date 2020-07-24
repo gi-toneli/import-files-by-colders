@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_123005) do
   end
 
   create_table "import_file_lines", force: :cascade do |t|
+    t.bigint "import_file_id"
     t.string "line"
     t.integer "transaction_type"
     t.date "date_occurency"
@@ -48,11 +49,11 @@ ActiveRecord::Schema.define(version: 2020_07_23_123005) do
     t.string "store_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["import_file_id"], name: "index_import_file_lines_on_import_file_id"
   end
 
   create_table "import_files", force: :cascade do |t|
     t.string "name"
-    t.text "file_content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

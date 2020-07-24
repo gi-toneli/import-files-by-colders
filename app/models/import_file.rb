@@ -1,20 +1,25 @@
 class ImportFile < ApplicationRecord
-  validates :file, attached: true
-  has_one_attached :file
+  attr_accessor :lines, :file
   has_many :import_file_lines
 
-  after_initialize :set_name
+  after_initialize :set_name, :set_lines
   after_create :build_import_file_lines
+
 
   protected
     def set_name
       self.name = "CNAB - #{Time.now}"
     end
 
-    def build_import_file_lines
-      File.readlines(self.file).each do |line|
-        self.import_file_lines.build(line: line)
-      end
+    def set_lines
+      self.lines = []
     end
 
+    def build_import_file_lines
+      File.readlines(self.file).each do |line|
+        line = line[0..80]
+        import_file_line = self.import_file_lines.build(line: line)
+        import_file_line.save
+      end
+    end
 end

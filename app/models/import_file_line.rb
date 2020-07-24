@@ -1,8 +1,5 @@
 class ImportFileLine < ApplicationRecord
   attr_accessor :line
-  validates :line, presence: true, length: {is: 80}
-  validates :line, format: { with: /\A[a-zA-Z0-9.]+\z/,
-    message: 'only allows letters and numbers' }
   validates :transaction_type, presence: true
   validates :value, presence: true, numericality: {only_float: true}
   validates :cpf, presence: true, length: {is: 11}
@@ -13,17 +10,18 @@ class ImportFileLine < ApplicationRecord
 
   before_validation :set_attributes
 
-  enum transaction_type: [
-    'Débito',
-    'Boleto',
-    'Financiamento',
-    'Crédito',
-    'Recebimento Empréstimo',
-    'Vendas',
-    'Recebimento TED',
-    'Recebimento DOC',
-    'Aluguel' 
-  ]
+  enum transaction_type:
+    {
+      'Débito': 1,
+      'Boleto': 2,
+      'Financiamento': 3,
+      'Crédito': 4,
+      'Recebimento Empréstimo': 5,
+      'Vendas': 6,
+      'Recebimento TED': 7,
+      'Recebimento DOC': 8,
+      'Aluguel': 9 
+    }
 
   def set_attributes
     self.transaction_type = parse_line(0, 0).to_i

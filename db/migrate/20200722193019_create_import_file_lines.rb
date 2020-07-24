@@ -1,6 +1,7 @@
 class CreateImportFileLines < ActiveRecord::Migration[6.0]
   def change
     create_table :import_file_lines do |t|
+      t.references :import_file
       t.string :line
       t.integer :transaction_type
       t.date :date_occurency

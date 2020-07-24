@@ -27,7 +27,7 @@ RSpec.describe ImportFileLine, type: :model do
     end
 
     it 'valid transaction_type' do
-      expect(subject.transaction_type).to eql('Vendas')
+      expect(subject.transaction_type).to eql('Recebimento Empréstimo')
     end
 
     it 'valid date_occurency' do
@@ -58,17 +58,6 @@ RSpec.describe ImportFileLine, type: :model do
 
     it 'valid store_name' do
       expect(subject.store_name).to eql('LOJA DO Ó - MATRIZ')
-    end
-  end
-
-  context 'validations of import file line' do
-    it 'should be invalid' do
-      expect(subject.valid?).to be_falsy
-    end
-
-    it 'return errors' do
-      subject.valid?
-      expect(subject.errors.size).to eql(11)
     end
   end
 end
