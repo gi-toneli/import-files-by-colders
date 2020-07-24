@@ -1,24 +1,23 @@
-# README
+# Informações sobre o projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto é sobre um teste de importação de arquivos basicamente. Está hospedado no heroku com endereço https://import-files-by-colders.herokuapp.com/
 
-Things you may want to cover:
+Ele está utilizando rails 6.*, PostgresSQL e rspec para tests
 
-* Ruby version
+## Para iniciar o projeto
 
-* System dependencies
+Depois de baixar o projeto do repositório execute na raiz do projeto
 
-* Configuration
+`bundle`
 
-* Database creation
+`yarn`
 
-* Database initialization
+`rails db:create db:migrate`
 
-* How to run the test suite
+## Executando os tests
 
-* Services (job queues, cache servers, search engines, etc.)
+O projeto está com 95% de cobertura de testes utilizando testes unitários e systema|featuress. Para rodar os testes execute na linha de comando
 
-* Deployment instructions
+`bundle exex guard`
 
-* ...
+E aperte **Enter**. Assim ele irá rodar todos os testes e apontar erros e a quantidade de cobertura.
