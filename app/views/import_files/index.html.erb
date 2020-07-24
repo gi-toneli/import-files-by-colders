@@ -11,4 +11,15 @@
 <% if flash && flash[:success] %>
 <h3><%=flash[:success] %></h3>
 <% end %>
+<% if @import_files.empty? %>
+<h3>Nenhuma importação realizada</h3>
+<% else %>
+  <div class="import-description">
+    <% @import_files.each do |import_file| %>
+      Descrição da importação: <%= import_file.name %><br />
+      Número de linhas importadas: <%= import_file.import_file_lines.count %>
+      <hr />
+    <% end %>
+  </div>
+<% end %>
 

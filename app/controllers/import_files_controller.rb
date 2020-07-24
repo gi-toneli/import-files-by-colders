@@ -1,6 +1,7 @@
 class ImportFilesController < ApplicationController
   def index
     @import_file = ImportFile.new
+    @import_files = ImportFile.order(created_at: :desc)
   end
 
   def create
