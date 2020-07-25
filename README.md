@@ -18,6 +18,6 @@ Depois de baixar o projeto do repositório execute na raiz do projeto
 
 O projeto está com 95% de cobertura de testes utilizando testes unitários e systema|featuress. Para rodar os testes execute na linha de comando
 
-`bundle exex guard`
+`bundle exe guard`
 
 E aperte **Enter**. Assim ele irá rodar todos os testes e apontar erros e a quantidade de cobertura.
