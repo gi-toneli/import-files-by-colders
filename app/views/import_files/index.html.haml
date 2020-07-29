@@ -1,0 +1,51 @@
+%h1 Import CNAB file
+.container
+  = form_for @import_file, html: { id: 'import-file' } do |f|
+    = f.label :file, 'CNAB file'
+    = f.file_field :file, required: true
+    = f.submit "Import"
+- if flash && flash[:success]
+  %h3= flash[:success]
+- if @import_files.empty?
+  %h3 No import performed
+- else
+  - @import_files.each do |import_file|
+    %h3 File: #{import_file.name.to_time.strftime("%b, %m %Y - %H:%M")}
+    %p Total of lines #{import_file.import_file_lines.count}
+    %table
+      %thead
+        %th
+          Card
+        %th
+          Value
+        %th
+          Cpf
+        %th
+          Date occurency
+        %th
+          Hour
+        %th
+          Owner
+        %th
+          Store
+        %th
+          Transaction
+      %tbody
+        - import_file.import_file_lines.each_with_index do |import_file_line, index|
+          %tr
+            %td
+              #{import_file_line.card}
+            %td
+              #{import_file_line.value}
+            %td
+              #{import_file_line.cpf}
+            %td
+              #{import_file_line.date_occurency}
+            %td
+              #{import_file_line.occurency_hour.strftime('%H')}
+            %td
+              #{import_file_line.owner}
+            %td
+              #{import_file_line.store_name}
+            %td
+              #{import_file_line.transaction_type}
