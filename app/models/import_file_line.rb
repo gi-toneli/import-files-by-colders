@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: import_file_lines
+#
+#  id               :bigint           not null, primary key
+#  card             :string
+#  cpf              :string
+#  date_occurency   :date
+#  line             :string
+#  occurency_hour   :time
+#  owner            :string
+#  store_name       :string
+#  transaction_type :integer
+#  value            :float
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  import_file_id   :bigint
+#
+# Indexes
+#
+#  index_import_file_lines_on_import_file_id  (import_file_id)
+#
 class ImportFileLine < ApplicationRecord
   attr_accessor :line
   validates :transaction_type, presence: true

@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: import_files
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class ImportFile < ApplicationRecord
   attr_accessor :lines, :file
   has_many :import_file_lines

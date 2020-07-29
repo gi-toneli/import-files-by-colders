@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: import_files
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'rails_helper'
 RSpec.describe ImportFile, type: :model do
   let!(:file) { File.open(Rails.root.join('spec', 'data', 'cnab_example.txt')) }  

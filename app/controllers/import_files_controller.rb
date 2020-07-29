@@ -7,9 +7,9 @@ class ImportFilesController < ApplicationController
   def create
     @import_file = ImportFile.new(import_file_params)
     if @import_file.save
-      redirect_to root_path, flash: {success: 'Importação realizada com sucesso'}
+      redirect_to root_path, flash: {success: 'Import performed successfully'}
     else
-      redirect_to root_path, flash: {error: 'Falha na importação reveja seu arquivo'}
+      redirect_to root_path, flash: {error: 'Import failed'}
     end
   end
 

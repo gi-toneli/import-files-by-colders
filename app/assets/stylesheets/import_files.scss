@@ -3,21 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .container{
   width: 100vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 #import-file {
-  padding: 20px;
-  border: 2px solid #999;
-  width: 50%;
-  border-radius: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 20px;
 }
 
 input{
@@ -33,7 +24,7 @@ input[type='file'] {
 }
 
 label {
-  background-color: #3498db;
+  background-color: #b0bec5;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -43,26 +34,17 @@ label {
   padding-top: 10px;
 }
 
-h1 {
-  margin-top: 200px;
+table{
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-h3 {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.import-description{
-  margin: 10px;
-  border: 0.2px solid #000;
-  border-radius: 10px;
-  padding: 10px;
+  margin: 10px 0;
+  th{
+    text-align: left;
+    color: #fff;
+    background-color: #9e9e9e;
+  }
+  th, td{
+    font-size: 12px;
+    border: 1px solid #757575;
+    padding: 2px;
+  }
 }

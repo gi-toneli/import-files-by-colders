@@ -9,13 +9,13 @@ RSpec.feature 'Widget management', :type => :feature do
     end
 
     scenario 'visitor in /' do
-      expect(page).to have_content('Informe o arquivo CNAB')
+      expect(page).to have_content('Import CNAB file')
     end
 
     scenario 'Visitors interact with page' do
       attach_file "import_file_file", file, make_visible: true
-      click_button 'Salvar dados'
-      expect(page).to have_content('Importação realizada com sucesso')
+      click_button 'Import'
+      expect(page).to have_content('Import performed successfully')
     end
   end
 end
