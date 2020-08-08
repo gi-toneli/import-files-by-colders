@@ -2,10 +2,13 @@
 #
 # Table name: import_files
 #
-#  id         :bigint           not null, primary key
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :bigint           not null, primary key
+#  count_lines :integer          default(0)
+#  file_name   :string           not null
+#  name        :string
+#  status      :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 require 'rails_helper'
 RSpec.describe ImportFile, type: :model do

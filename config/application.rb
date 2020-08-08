@@ -34,5 +34,8 @@ module ImportFilesByColders
     config.generators do |g|
       g.template_engine :haml
     end
+
+    config.active_job.queue_adapter = :sidekiq
+    Sidekiq.configure_server { |c| c.redis = { url: ENV['REDIS_URL'] }}
   end
 end

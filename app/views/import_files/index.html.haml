@@ -11,7 +11,8 @@
 - else
   - @import_files.each do |import_file|
     %h3 File: #{import_file.name.to_time.strftime("%b, %m %Y - %H:%M")}
-    %p Total of lines #{import_file.import_file_lines.count}
+    %p Status #{import_file.status}
+    %p Total of lines #{import_file.count_lines}
     %table
       %thead
         %th

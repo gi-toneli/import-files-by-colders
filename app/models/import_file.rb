@@ -2,33 +2,41 @@
 #
 # Table name: import_files
 #
-#  id         :bigint           not null, primary key
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :bigint           not null, primary key
+#  count_lines :integer          default(0)
+#  file_name   :string           not null
+#  name        :string
+#  status      :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 class ImportFile < ApplicationRecord
-  attr_accessor :lines, :file
+  attr_accessor :file
   has_many :import_file_lines
 
-  after_initialize :set_name, :set_lines
-  after_create :build_import_file_lines
-
+  after_initialize :set_name
+  before_validation :save_file
+  after_create :perfom_lines
+  enum status: [ :processing, :finished ]
 
   protected
     def set_name
       self.name = "CNAB - #{Time.now}"
     end
 
-    def set_lines
-      self.lines = []
+    def save_file
+      unless self.file
+        self.errors.add(:file, 'You must fill the file')
+        return false
+      end
+      self.file_name = Rails.root.join('public','uploads',"#{Time.now}-#{self.file.original_filename}")
+      File.open(self.file_name, 'wb') do |file|
+        file.write(self.file.read)
+      end
+      true
     end
 
-    def build_import_file_lines
-      File.readlines(self.file).each do |line|
-        line = line[0..80]
-        import_file_line = self.import_file_lines.build(line: line)
-        import_file_line.save
-      end
+    def perfom_lines
+      ImportFileJob.perform_later(self.id)
     end
 end
