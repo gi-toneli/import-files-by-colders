@@ -1,8 +1,8 @@
 # Informações sobre o projeto
 
-Este projeto é sobre um teste de importação de arquivos basicamente. Está hospedado no heroku com endereço https://import-files-by-colders.herokuapp.com/
+Este projeto é sobre um teste de importação de arquivos basicamente. Está hospedado no heroku com endereço https://import-files-rtoledo.herokuapp.com/
 
-Ele está utilizando rails 6.*, PostgresSQL e rspec para tests
+Ele está utilizando rails 6.*, Redis, sidekiq, PostgresSQL e rspec para tests
 
 ## Para iniciar o projeto
 
@@ -10,9 +10,11 @@ Depois de baixar o projeto do repositório execute na raiz do projeto
 
 `bundle`
 
-`yarn`
-
 `rails db:create db:migrate`
+
+`redis-server`
+
+`yarn`
 
 ## Executando os tests
 
