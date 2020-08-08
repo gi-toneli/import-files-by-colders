@@ -15,7 +15,7 @@ RSpec.feature 'Widget management', :type => :feature do
     scenario 'Visitors interact with page' do
       attach_file "import_file_file", file, make_visible: true
       click_button 'Import'
-      expect(page).to have_content('Import performed successfully')
+      expect(page).to have_content('Import is processing')
     end
   end
 end
